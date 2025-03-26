@@ -26,7 +26,7 @@ public class Metodos {
             materia = JOptionPane.showInputDialog("Ingrese la materia del estudiante: " + nombres[i]);
             materias[i] = materia;
 
-            notaFinal = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la nota final del estudiante: " + nombres[i]));
+            notaFinal = validarRango("Ingresa la nota del estudiante: " + nombres[i]);
             notas[i] = notaFinal;
 
             edad    = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del estudiante: " + nombres[i]));
@@ -44,15 +44,15 @@ public class Metodos {
 
             JOptionPane.showMessageDialog(null, msj);
         }
-        double sumaNotas = calcularSumaNotas(notas);
-        System.out.println(sumaNotas);
 
         double promedioNotas = calcularPromedio(notas);
         System.out.println(promedioNotas);
+        double promedioEdades = calcularPromedioEdades(edades);
+        System.out.println(promedioEdades);
 
     }
 
-
+    /*
     public double calcularSumaNotas(double[] notas){
         double suma = 0;
         for (int i = 0; i < notas.length; i++) {
@@ -60,6 +60,16 @@ public class Metodos {
         }
         return suma;
 
+    }
+     */
+
+    public double calcularPromedioEdades(int[] edades){
+        double suma = 0, prom = 0;
+        for (int i = 0; i < edades.length ; i++) {
+            suma+= edades[i];
+            prom = suma/edades.length;
+        }
+        return prom;
     }
 
     public double calcularPromedio(double[] notas){
@@ -71,9 +81,15 @@ public class Metodos {
         return promedio;
     }
 
-    public void validarRango(double nota){
-
-
+    public double validarRango(String msj){
+        double nota = -1;
+        while (nota < 0 || nota > 5){
+            nota = Double.parseDouble(JOptionPane.showInputDialog(msj));
+            if (nota < 0 || nota > 5) {
+                JOptionPane.showMessageDialog(null, "Número fuera del rango. Intente de nuevo", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        return nota;
     }
 
 }
