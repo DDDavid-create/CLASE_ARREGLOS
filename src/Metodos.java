@@ -1,5 +1,5 @@
 import javax.swing.*;
-import java.sql.SQLOutput;
+
 
 public class Metodos {
     int edad;
