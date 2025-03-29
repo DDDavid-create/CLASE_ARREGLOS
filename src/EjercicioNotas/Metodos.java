@@ -1,3 +1,5 @@
+package EjercicioNotas;
+
 import javax.swing.*;
 
 
@@ -51,17 +53,6 @@ public class Metodos {
         System.out.println(promedioEdades);
 
     }
-
-    /*
-    public double calcularSumaNotas(double[] notas){
-        double suma = 0;
-        for (int i = 0; i < notas.length; i++) {
-            suma+=notas[i];
-        }
-        return suma;
-
-    }
-     */
 
     public double calcularPromedioEdades(int[] edades){
         double suma = 0, prom = 0;
